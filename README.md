@@ -24,22 +24,21 @@ Use the **Privacy Policy** URL in App Store Connect.
 4. Branch: **main** / folder: **/ (root)**
 5. Save — site goes live in 1–3 minutes
 
-## Update the mobile app (optional)
+## Mobile app
 
-In `expenseTracker/.env` and EAS production env:
+`expenseTracker` opens these URLs in an in-app browser (defaults in `app/config/legalUrls.ts`). **Edit legal text only in this repo** — no duplicate copy in the app.
+
+Optional override in `expenseTracker/.env`:
 
 ```bash
 EXPO_PUBLIC_PRIVACY_POLICY_URL=https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/privacy-policy.html
 EXPO_PUBLIC_TERMS_OF_USE_URL=https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/terms-of-use.html
 ```
 
-Leave both empty to keep opening legal text **inside the app** only.
-
 ## Editing content
 
 1. Edit `privacy-policy.html` / `terms-of-use.html` here
-2. Mirror important changes in `expenseTracker/app/legal/legalDocumentContent.ts` (in-app copy)
-3. Commit and push — Pages updates automatically
+2. Commit and push — GitHub Pages updates automatically
 
 ## Related repos
 
