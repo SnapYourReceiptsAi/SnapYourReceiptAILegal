@@ -1,6 +1,6 @@
 # SnapYourReceiptAILegal
 
-Public legal pages for **SnapReceipt** (App Store, privacy questionnaire, and optional in-app browser links).
+Public legal pages for **Snap Your Receipt AI** (App Store, privacy questionnaire, and the links in the app's Profile tab).
 
 Hosted via [GitHub Pages](https://pages.github.com/) from this repository.
 
@@ -26,9 +26,12 @@ Use the **Privacy Policy** URL in App Store Connect.
 
 ## Mobile app
 
-`expenseTracker` opens these URLs in an in-app browser (defaults in `app/config/legalUrls.ts`). **Edit legal text only in this repo** — no duplicate copy in the app.
+The app lives in `expo-apps` at `applications/snap-your-receipt-ai`. Profile →
+Help opens these pages in the browser. **Edit legal text only in this repo** —
+the app holds no copy of it.
 
-Optional override in `expenseTracker/.env`:
+The app has no default for either URL; it reads them from its environment, in
+`.env` locally and in the EAS environments for builds:
 
 ```bash
 EXPO_PUBLIC_PRIVACY_POLICY_URL=https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/privacy-policy.html
@@ -42,5 +45,5 @@ EXPO_PUBLIC_TERMS_OF_USE_URL=https://snapyourreceiptsai.github.io/SnapYourReceip
 
 ## Related repos
 
-- `expenseTracker` — iOS/Android client
+- `expo-apps` (`applications/snap-your-receipt-ai`) — iOS/Android client
 - `expense-tracker-backend` — API
