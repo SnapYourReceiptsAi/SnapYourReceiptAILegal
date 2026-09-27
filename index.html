@@ -3,12 +3,97 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Snap Your Receipt AI</title>
+    <title>Snap Your Receipt AI — receipts, read line by line</title>
     <meta
       name="description"
-      content="Snap Your Receipt AI turns a receipt into an itemised, categorised record of what you spent."
+      content="Photograph a paper receipt and every line is filed under one of fourteen spending categories. Personal or business, Canada and the US, CSV export. iPhone app, five scans free."
     />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/" />
+    <meta property="og:title" content="Snap Your Receipt AI" />
+    <meta property="og:description" content="Snap it. We'll read it. Every receipt filed line by line." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Snap Your Receipt AI",
+      "alternateName": "Snap Receipt",
+      "operatingSystem": "iOS",
+      "applicationCategory": "FinanceApplication",
+      "description": "Photograph a paper receipt and the app reads the shop, the date, every line and the totals, filing each line under one of fourteen spending categories. Personal or business. Search, filter by month, ask Sage about your receipts, export CSV.",
+      "url": "https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/",
+      "installUrl": "https://apps.apple.com/app/id6806868084",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Five scans free, then a monthly or yearly subscription with a free trial on the monthly plan."
+      },
+      "featureList": [
+        "Reads paper receipts from a photo: shop, date, every line, totals",
+        "Files each line under one of fourteen categories",
+        "Personal, business or both, per receipt",
+        "Search by shop; filter by category, type and month",
+        "Spending by category and month; recurring bills",
+        "Sage: questions answered from your own receipts only",
+        "Import PDF or photo receipts; add a receipt by hand",
+        "CSV export for any date range, free even after a subscription ends"
+      ],
+      "countriesSupported": "CA, US",
+      "inLanguage": "en",
+      "publisher": { "@type": "Organization", "name": "Level Up" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Snap Your Receipt AI connect to my bank?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. It reads receipts, so it knows what you bought, not just where. There is no bank or card connection and none is needed." }
+        },
+        {
+          "@type": "Question",
+          "name": "What categories does it use?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Fourteen: Groceries, Eating out, Shopping, Transport, Bills, Home, Health, Personal care, Clothing, Electronics, Entertainment, Pets, Travel and Other. Each line on a receipt gets its own category, and you can change any of them." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it tell personal and business receipts apart?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. You say what your receipts are for when you sign up: personal, business or both. With both, you choose on each receipt, and the Receipts tab filters by either." }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the reading is wrong?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Correct anything, the shop, a total, a line or its category, before you save and any time after." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get my data out?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Export everything as CSV for any date range from Settings. Export keeps working after a subscription ends, and so does reading what you have filed." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Your first five scans are free. After that, reading receipts is a subscription, monthly or yearly, with a free trial on the monthly plan, billed through the App Store." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my data and who reads it?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Receipts are stored privately against your account on Google Cloud. Images are read by an AI model, Google Gemini, under paid API terms that do not allow them to be used to train it. No data is sold and there is no advertising." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which countries and devices?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Canada and the United States, in English, on iPhone. Android is on the way." }
+        }
+      ]
+    }
+    </script>
     <style>
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -22,11 +107,15 @@
       header img { width: 72px; height: 72px; border-radius: 16px; }
       h1 { font-size: 1.75rem; margin: 0; }
       h2 { font-size: 1.15rem; margin-top: 2rem; }
+      h3 { font-size: 1rem; margin: 1.25rem 0 0.25rem; }
       p, li { font-size: 0.95rem; }
       li { margin-bottom: 8px; }
       .lede { font-size: 1.1rem; }
+      .story { border-left: 3px solid #0d6e6e; padding-left: 16px; color: #333; }
       .muted { color: #555; font-size: 0.9rem; }
       a { color: #0d6e6e; }
+      .cta { display: inline-block; margin-top: 8px; padding: 10px 18px; background: #1a1a1a; color: #fff; border-radius: 999px; text-decoration: none; font-weight: 600; }
+      .facts { background: #f5f3ef; border-radius: 12px; padding: 4px 18px; }
       footer { margin-top: 2.5rem; border-top: 1px solid #ddd; padding-top: 1rem; }
     </style>
   </head>
@@ -37,53 +126,106 @@
     </header>
 
     <p class="lede">
-      A mobile app for iPhone and Android that turns a receipt into an itemised, categorised record
-      of what you spent.
+      <strong>Snap it. We'll read it.</strong> Photograph a paper receipt and every line is filed
+      under a category before you have put your wallet away.
     </p>
+    <a class="cta" href="https://apps.apple.com/app/id6806868084">Get it on the App Store</a>
+    <p class="muted">iPhone. Five scans free. Android is on the way.</p>
+
+    <div class="story">
+      <p>
+        I kept every receipt and never looked at one again. A shoebox, a drawer, a photo roll full
+        of paper I meant to sort. If you have ever wondered where the month went and had nothing but
+        a bank total to go on, you know the feeling.
+      </p>
+      <p>
+        Imagine every receipt filing itself: the shop, the date, each item and what kind of spending
+        it was, the moment you photograph it. That is why we built Snap Your Receipt AI.
+      </p>
+    </div>
 
     <h2>What it does</h2>
     <ul>
       <li>
-        <strong>Scan a receipt.</strong> Photograph a paper receipt and the app reads the shop, the
-        date, every line and the totals.
+        <strong>Reads the whole receipt.</strong> Point the camera at a paper receipt and the app
+        reads the shop, the date, every line and the totals.
       </li>
       <li>
-        <strong>Bring in a digital one.</strong> Import a PDF or a photo, or share one to the app
-        from your email or files.
+        <strong>Files each line under a category.</strong> Fourteen of them: Groceries, Eating out,
+        Shopping, Transport, Bills, Home, Health, Personal care, Clothing, Electronics,
+        Entertainment, Pets, Travel and Other. A single supermarket receipt splits into groceries,
+        household and the rest.
       </li>
       <li>
-        <strong>Sorted for you.</strong> Each item is placed in a category, so a single supermarket
-        receipt splits into groceries, household and everything else.
+        <strong>Lets you correct anything.</strong> The reading can be wrong. Change a shop name, a
+        total, a line or its category before you save, and any time after.
       </li>
       <li>
-        <strong>See where the money goes.</strong> Spending by category and by month, and the bills
-        that come around again.
+        <strong>Keeps personal and business apart.</strong> Say what your receipts are for when you
+        sign up; with both, you choose on each receipt. The ones you claim or invoice are one filter
+        away.
       </li>
       <li>
-        <strong>Ask about it.</strong> Sage, the in-app assistant, answers questions using only the
-        receipts you have filed.
+        <strong>Finds it again.</strong> Search by shop. Filter by category, by personal or business,
+        and by when: last week, last month, any month of the past year.
       </li>
-      <li><strong>Or type it in.</strong> Add a receipt by hand when there is nothing to photograph.</li>
+      <li>
+        <strong>Shows where the money goes.</strong> Spending by category and by month, the shops
+        you spend most at, and the bills that come around again.
+      </li>
+      <li>
+        <strong>Answers questions.</strong> Sage, the in-app assistant, answers using only the
+        receipts you have filed: "How much did I spend on eating out in August?"
+      </li>
+      <li>
+        <strong>Takes digital receipts too.</strong> Import a PDF or a photo, or share one to the app
+        from your email or files. No receipt to photograph? Type it in.
+      </li>
+      <li>
+        <strong>Lets your data leave with you.</strong> Export everything as CSV, for any date
+        range, whenever you like.
+      </li>
     </ul>
 
-    <h2>Your account and your data</h2>
-    <p>
-      You can create an account with an email address or sign in with Google. When you sign in with
-      Google, the app receives your name and email address to identify your account. It does not
-      request access to any other data in your Google Account.
-    </p>
-    <p>
-      Receipts you scan are stored privately against your account. How information is collected,
-      used and deleted is set out in the
-      <a href="privacy-policy.html">Privacy Policy</a>; the rules for using the app are in the
-      <a href="terms-of-use.html">Terms of Use</a>.
-    </p>
+    <h2>What it does not do</h2>
+    <ul>
+      <li>It does not connect to your bank or card. It reads receipts, so it knows what you bought, not just where.</li>
+      <li>It is in English, for Canada and the United States, on iPhone. Android is on the way.</li>
+      <li>It does not sell data and shows no advertising.</li>
+    </ul>
 
-    <h2>Subscription</h2>
+    <div class="facts">
+      <h2>Facts, briefly</h2>
+      <h3>Pricing</h3>
+      <p>
+        Your first five scans are free. After that, reading receipts is a subscription, monthly or
+        yearly, with a free trial on the monthly plan, billed through the App Store. Everything you
+        have already filed stays readable and exportable either way.
+      </p>
+      <h3>Your account and your data</h3>
+      <p>
+        Sign in with Apple, Google or an email address. Sign-in gives the app your name and email
+        address to identify your account and nothing else. Receipts are stored privately against
+        your account on Google Cloud. Images are read by an AI model (Google Gemini) under paid API
+        terms that do not allow them to be used to train it. How information is collected, used and
+        deleted is set out in the <a href="privacy-policy.html">Privacy Policy</a>; the rules for
+        using the app are in the <a href="terms-of-use.html">Terms of Use</a>. You can delete your
+        account, and everything in it, from Settings.
+      </p>
+    </div>
+
+    <h2>Questions people ask</h2>
+    <h3>Does it connect to my bank?</h3>
+    <p>No. There is no bank or card connection and none is needed.</p>
+    <h3>What if the reading is wrong?</h3>
+    <p>Correct it. Anything on a receipt can be changed before you save and any time after.</p>
+    <h3>Can I use it for business expenses?</h3>
     <p>
-      Reading receipts with AI is a paid feature, offered as an auto-renewing subscription through
-      the App Store and Google Play. Receipts you have already filed stay available to you.
+      Yes. Mark receipts as business, filter to them, and export them as CSV for your accountant or
+      your own records.
     </p>
+    <h3>Can I get my data out?</h3>
+    <p>Yes, as CSV, for any date range, from Settings. That never stops working.</p>
 
     <footer>
       <p>
@@ -95,7 +237,8 @@
       </p>
       <p class="muted">
         <a href="privacy-policy.html">Privacy Policy</a> ·
-        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="terms-of-use.html">Terms of Use</a> ·
+        <a href="llms.txt">llms.txt</a>
       </p>
     </footer>
   </body>

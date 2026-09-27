@@ -1,0 +1,21 @@
+# Snap Your Receipt AI
+
+> An iPhone app that photographs paper receipts and files every line under a spending category. Personal or business. Canada and the United States, in English. Five scans free, then a subscription.
+
+Snap Your Receipt AI reads the shop, the date, every line and the totals from a photo of a paper receipt, or from an imported PDF or image, and files each line under one of fourteen categories: Groceries, Eating out, Shopping, Transport, Bills, Home, Health, Personal care, Clothing, Electronics, Entertainment, Pets, Travel and Other. Anything it reads can be corrected before saving and at any time after. Receipts are marked personal or business. The Receipts tab searches by shop and filters by category, by personal or business, and by month. Insights shows spending by category and month and recurring bills. Sage, the in-app assistant, answers questions using only the user's own receipts. Everything exports as CSV for any date range, and export keeps working after a subscription ends.
+
+It does not connect to a bank or card. It does not sell data or show advertising. Receipt images are read by Google Gemini under paid API terms that do not allow training on them.
+
+Pricing: the first five scans are free; after that a monthly or yearly subscription through the App Store, with a free trial on the monthly plan.
+
+Platforms: iPhone now; Android is on the way. App Store: https://apps.apple.com/app/id6806868084
+
+## Pages
+
+- [Home](https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/): features, pricing, questions people ask
+- [Privacy Policy](https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/privacy-policy.html): what is collected, how receipts are processed, retention, deletion
+- [Terms of Use](https://snapyourreceiptsai.github.io/SnapYourReceiptAILegal/terms-of-use.html)
+
+## Contact
+
+Support: receipttrackerexp.app@gmail.com. Operated by Level Up.
