@@ -6,7 +6,7 @@ Snap Your Receipt AI reads the shop, the date, every line and the totals from a 
 
 It does not connect to a bank or card. It does not sell data or show advertising. Receipt images are read by Google Gemini under paid API terms that do not allow training on them.
 
-Pricing: the first five scans are free; after that a monthly or yearly subscription through the App Store, with a free trial on the monthly plan.
+Pricing: the first five scans are free; after that a monthly or yearly subscription through the App Store, each with a free trial.
 
 Platforms: iPhone now; Android is on the way. App Store: https://apps.apple.com/app/id6806868084
 
