@@ -22,7 +22,7 @@
   </head>
   <body>
     <h1>Privacy Policy</h1>
-    <p class="muted">Last updated: 2 October 2026</p>
+    <p class="muted">Last updated: 16 November 2026</p>
 
     <p>
       Snap Your Receipt AI (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is operated by MBS LAB INC.
@@ -35,6 +35,7 @@
     <ul>
       <li><strong>Account information:</strong> email address, name (if provided), a hashed password if you register with email, and, if you sign in with Google, the identifier, name and email address Google gives us for your account. We do not request access to any other data in your Google Account.</li>
       <li><strong>Receipt and spending data:</strong> receipt photos and PDF documents you scan, import, or share to the app; shop names and addresses, dates, line items, quantities, prices, taxes, discounts and fees, totals and categories read from them; receipts you type in by hand; and recurring expenses you add.</li>
+      <li><strong>Card statements:</strong> the charges read from a credit-card statement you import (see section 4), with the bank&apos;s name and the last digits of the card. We never keep the statement file itself, a full card number or the cardholder&apos;s name.</li>
       <li><strong>Region:</strong> your country and state or province, which you choose in the app or which we infer from your device&apos;s region setting or from the shops on your receipts. We do not collect your device&apos;s location.</li>
       <li><strong>Questions to Sage:</strong> the questions you ask the in-app assistant, and a count of them so that monthly limits can be applied.</li>
       <li><strong>Referral data:</strong> your referral code, a code you enter, and whether a referral has qualified for a reward.</li>
@@ -47,12 +48,13 @@
     <h2>2. How we use information</h2>
     <ul>
       <li>Read receipts using optical character recognition (OCR) and AI, and sort their items into categories.</li>
+      <li>Read card statements you import, and add the charges you choose as expenses.</li>
       <li>Store your receipts and show your spending by category, shop and month, including recurring expenses.</li>
       <li>Answer the questions you ask Sage, using your own receipts.</li>
       <li>Let you export your receipts.</li>
       <li>Authenticate you and maintain your account.</li>
       <li>Process subscriptions and referral rewards.</li>
-      <li>Recognise shops and products across receipts (see section 4).</li>
+      <li>Recognise shops and products across receipts (see section 5).</li>
       <li>Read and act on the feedback and bug reports you send, and reply to you about them.</li>
       <li>Improve reliability, prevent fraud, and comply with law.</li>
       <li>Respond to support requests at <a href="mailto:support@mbslab.org">support@mbslab.org</a>.</li>
@@ -80,7 +82,39 @@
       AI extraction and answers can be wrong. You can correct any receipt before and after it is saved.
     </p>
 
-    <h2>4. The shared catalogue of shops and products</h2>
+    <h2>4. Card statements</h2>
+    <p>
+      You can import a credit-card statement as a PDF or CSV file from your bank, or as photos of a
+      paper statement. The file or photos are sent to our servers and read in memory. They are never
+      saved to storage, and they are discarded once the statement has been read.
+    </p>
+    <p>To read the statement, we send it to the same Google Gemini service described in section 3:</p>
+    <ul>
+      <li>for a PDF with selectable text, the text of its pages;</li>
+      <li>for a scanned PDF or photos, images of its pages;</li>
+      <li>for a CSV file, only its header row and first eight rows, so that the service can tell which column is which. The rest of the file is read by our own software and is not sent;</li>
+      <li>the names of shops we cannot already sort into a category from your past receipts or the bank&apos;s own category, so that the service can suggest one.</li>
+    </ul>
+    <p>From each statement we keep:</p>
+    <ul>
+      <li>the bank&apos;s name, the card&apos;s currency, the statement period and the date you imported it;</li>
+      <li>for each charge: its dates, amount and currency (and the amount in a foreign currency, if any), the description as the bank printed it and a shorter shop name, the bank&apos;s category, whether it is a purchase, refund, payment, interest or fee, the bank&apos;s reference number, and the last four or five digits of the card;</li>
+      <li>fingerprints of the file and of each charge. A fingerprint is a short code made from the content that cannot be turned back into it. We use them to stop the same statement or charge from being imported twice.</li>
+    </ul>
+    <p>
+      We never keep a full card number, a cardholder&apos;s name, your address or your account balance. We compare the charges
+      with the receipts already in your account to suggest which charge is the same purchase as a
+      receipt. Charges you add become expenses in your account, like any other receipt.
+    </p>
+    <p>
+      You can remove an imported statement in the app. This deletes the statement, its charges and the
+      expenses it added, and gives any receipt it was matched to its own amount back. If you delete a
+      single expense that came from a statement, we keep that charge&apos;s record so that importing the
+      same statement again does not add it back. That record is deleted when you remove the statement or
+      your account.
+    </p>
+
+    <h2>5. The shared catalogue of shops and products</h2>
     <p>
       To recognise that &quot;LOBLAWS&quot; and &quot;LOBLAWS SUPERMARKET&quot; are the same shop, or that two
       receipt lines are the same product, we build a catalogue of shop names and product names from the
@@ -94,7 +128,7 @@
       they are not removed when you delete a receipt or your account.
     </p>
 
-    <h2>5. Third-party service providers</h2>
+    <h2>6. Third-party service providers</h2>
     <p>We use trusted providers that process data on our behalf, including:</p>
     <ul>
       <li>Supabase (database hosting)</li>
@@ -104,31 +138,32 @@
     </ul>
     <p>Their use of information is governed by their respective terms and privacy policies.</p>
 
-    <h2>6. Sharing of information</h2>
+    <h2>7. Sharing of information</h2>
     <p>
       We do not sell your personal information and the app contains no advertising. We share information
       with the service providers described above, if required by law, or to protect rights and safety.
       Your receipts are not visible to other users.
     </p>
 
-    <h2>7. Data retention</h2>
+    <h2>8. Data retention</h2>
     <p>
       We retain your information while your account is active. When you delete your account in the app,
       we delete your user record, your receipts and their line items, the receipt images and documents
-      in storage, and the feedback and bug reports you sent, subject to backup retention for a limited period and legal obligations. Entries in the
-      shared catalogue described in section 4 remain, because they identify nobody.
+      in storage, your imported statements and their charges, and the feedback and bug reports you sent, subject to backup retention for a limited period and legal obligations. Entries in the
+      shared catalogue described in section 5 remain, because they identify nobody.
     </p>
 
-    <h2>8. Security</h2>
+    <h2>9. Security</h2>
     <p>
       We use industry-standard measures such as encryption in transit (HTTPS), private file storage with
       time-limited access links, access controls, and authenticated APIs. No method of transmission or
       storage is 100% secure.
     </p>
 
-    <h2>9. Your choices and rights</h2>
+    <h2>10. Your choices and rights</h2>
     <ul>
       <li>Correct or delete any receipt in the app.</li>
+      <li>Remove an imported card statement, which deletes the expenses it added.</li>
       <li>Export your receipts as a CSV file under Profile &rarr; Settings &rarr; Export receipts.</li>
       <li>Change your region under Profile &rarr; Settings.</li>
       <li>Delete your account under Profile &rarr; Settings &rarr; Delete my account (permanent).</li>
@@ -136,25 +171,25 @@
       <li>Contact us to request access, correction, or deletion where applicable by law.</li>
     </ul>
 
-    <h2>10. Children</h2>
+    <h2>11. Children</h2>
     <p>
       The Service is not directed to children under 13 (or the minimum age in your jurisdiction). We do
       not knowingly collect personal information from children.
     </p>
 
-    <h2>11. International users</h2>
+    <h2>12. International users</h2>
     <p>
       If you use the Service from outside Canada, your information may be processed in countries where
       our providers operate, including the United States.
     </p>
 
-    <h2>12. Changes</h2>
+    <h2>13. Changes</h2>
     <p>
       We may update this policy. We will post the revised version at this URL and update the
       &quot;Last updated&quot; date. Continued use after changes constitutes acceptance.
     </p>
 
-    <h2>13. Contact</h2>
+    <h2>14. Contact</h2>
     <p>
       MBS LAB INC. — Snap Your Receipt AI<br />
       Email: <a href="mailto:support@mbslab.org">support@mbslab.org</a>
