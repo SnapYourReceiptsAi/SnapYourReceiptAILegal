@@ -40,8 +40,14 @@ EXPO_PUBLIC_TERMS_OF_USE_URL=https://snapyourreceiptsai.github.io/SnapYourReceip
 
 ## Editing content
 
-1. Edit `privacy-policy.html` / `terms-of-use.html` here
-2. Commit and push — GitHub Pages updates automatically
+The Privacy Policy and Terms of Use are published on the website, at
+https://snapyourreceipt.app/privacy-policy and https://snapyourreceipt.app/terms-of-use.
+Edit them in `snapyourreceipt-web` (`applications/web/app/site/legal/`).
+
+`privacy-policy.html` and `terms-of-use.html` here only redirect there, so
+links already in the app and the stores keep working. Point
+`EXPO_PUBLIC_PRIVACY_POLICY_URL` and `EXPO_PUBLIC_TERMS_OF_USE_URL` at the
+website URLs when convenient.
 
 ## Related repos
 
